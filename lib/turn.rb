@@ -33,14 +33,14 @@ def input_to_index(user_input)
 end
 
 def turn(board)
-  while valid_move?(board, index)
-    puts"Please enter 1-9:"
-    input = gets.strip
-    index = input_to_index(input)
-    if board[index]
-      valid_move?(board, index)
-    end
+  puts"Please enter 1-9:"
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board, index, char)
+    display_board(board)
+  else
+    turn(board)
   end
-  turn(board)
   display_board(board)
 end
